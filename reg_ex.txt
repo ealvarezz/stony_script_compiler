@@ -1,0 +1,23 @@
+root : expr
+expr : LBRACE expr RBRACE
+expr : expr COMMA expr
+expr : expr LBRACE expr RBRACE
+expr : LBRACE RBRACE
+expr : LPAREN expr RPAREN
+expr : expr PLUS expr 
+expr : expr MINUS expr 
+expr : expr TIMES expr 
+expr : expr DIVIDE expr 
+expr : expr AND expr 
+expr : expr OR expr 
+expr : expr POW expr 
+expr : expr MOD expr 
+expr : expr GT expr 
+expr : expr GE expr 
+expr : expr EQ expr 
+expr : expr LT expr 
+expr : expr LE expr 
+expr : NOT expr
+expr : STRING 
+expr : NUMBER
+expr : BOOL 

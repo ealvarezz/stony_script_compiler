@@ -1,0 +1,51 @@
+For line 5 & 6, you should consider the precedence of conjunction and disjunction. 
+
+ 
+
+" 1 + 2 = " + ' 3 '
+' 1 + 2 =  3 '
+
+ 
+
+["abc",["bcd",["cde","def"]]][1][1][1][1]
+'e'
+
+ 
+
+1 + 2.5
+3.5
+
+ 
+
+'substring' in "There is a substring in this string"
+True
+
+ 
+
+True or False and False
+True
+
+ 
+
+(True or False) and False
+False
+
+ 
+
+1 <> 2 and 'T' + (((["abc", ["def", "ghi"]][1][1][1]))) + "is" in "This string contains h"
+True
+
+ 
+
+True and not False or not True and False
+True
+
+ 
+
+1 // 2 + 5 > 5
+False
+
+ 
+
+4 ** 3 ** 2 <> (4 ** 3)**2
+True
