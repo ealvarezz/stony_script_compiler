@@ -1,7 +1,8 @@
 root : expr
-expr : LBRACE expr RBRACE
-expr : expr COMMA expr
+expr : LBRACE items RBRACE
+items : items COMMA expr
 expr : expr LBRACE expr RBRACE
+expr : STRING  LBRACE expr RBRACE
 expr : LBRACE RBRACE
 expr : LPAREN expr RPAREN
 expr : expr PLUS expr 

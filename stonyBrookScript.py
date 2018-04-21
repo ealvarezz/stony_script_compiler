@@ -77,7 +77,7 @@ class BinopNode(Node):
                 return self.v1.evaluate() + self.v2.evaluate()
         except:
             print("SEMANTIC ERROR")
- #           raise Exception
+            raise Exception
 
 """
 class ConcatNode(Node):
@@ -141,10 +141,11 @@ class ListNode(Node):
     def evaluate(self):
         try:
             #print('did you even try?')
+            new_l = []
             for i in self.l:
-                i.evaluate()
+                new_l.append(i.evaluate())
             #print('ahhhhhhhhhhhhhhhhh')
-            return self.l
+            return new_l
         except:
             print('SEMANTIC ERROR')
             raise Exception
@@ -236,7 +237,7 @@ def t_BOOL(t):
 
 
 def t_STRING(t):
-    r'(\'[^"]*\')|(\"[^"]*\")'
+    r'("[^"]*")|(\'[^\']*\')'
 
     t.value = t.value.strip('\"')
     t.value = t.value.strip('\'')
@@ -400,6 +401,11 @@ def p_expression_in_list(t):
     '''
     t[0] = InNode(t[3], t[1])
 
+
+def p_error(p):
+ 
+    print("SYNTAX ERROR")
+    raise Exception
 
 
 import ply.yacc as yacc
