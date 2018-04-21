@@ -1,1 +1,8 @@
- {print(1 + 10 + 19);}
+'substring' in "There is a substring in this string"
+1 + 2.5
+True or False and False
+(True or False) and False
+" 1 + 2 = " + ' 3 '
+True and not False or not True and False
+1 // 2 + 5 > 5
+4 ** 2 ** 2 <> (4 ** 3)**2

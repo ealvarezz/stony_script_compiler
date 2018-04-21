@@ -1,3 +1,4 @@
+# Edwin Alvarez 109448839
 # First I will define the classes that my parser is going to use
 class Node:
     def __init__(self):
@@ -14,7 +15,12 @@ class RootNode(Node):       # This is the root note that will perform the
         self.v = v      # the tree if finally constructed
 
     def execute(self):
-        print(self.v.evaluate())
+        val = self.v.evaluate()
+
+        if isinstance(val, str):
+            print('\'' + val + '\'')
+        else:
+            print(val)
 
 
 class NumberNode(Node):
@@ -38,7 +44,10 @@ class StringNode(Node):
 
 class BooleanNode(Node):
     def __init__(self, v):
-        self.v = bool(v)
+        if v == 'True':
+            self.v = True
+        else:
+            self.v = False
 
     def evaluate(self):
         return self.v
@@ -68,7 +77,7 @@ class BinopNode(Node):
                 return self.v1.evaluate() + self.v2.evaluate()
         except:
             print("SEMANTIC ERROR")
-            raise Exception
+ #           raise Exception
 
 """
 class ConcatNode(Node):
@@ -89,7 +98,7 @@ class BoolopNode(Node):
         self.op = op
 
     def evaluate(self):
-        try: 
+        try:
             if (self.op == 'and'):
                 return self.v1.evaluate() and self.v2.evaluate()
             elif (self.op == 'or'):
@@ -131,8 +140,10 @@ class ListNode(Node):
 
     def evaluate(self):
         try:
+            #print('did you even try?')
             for i in self.l:
                 i.evaluate()
+            #print('ahhhhhhhhhhhhhhhhh')
             return self.l
         except:
             print('SEMANTIC ERROR')
@@ -145,8 +156,12 @@ class ListIndex(Node):
         self.index = index
 
     def evaluate(self):
+        #print('evaliating index')
         try:
-            return self.l.evaluate()[self.index.evaluate()]
+            listt = self.l.evaluate()
+            #print(listt)
+            #print('YERR')
+            return listt[self.index.evaluate()]
         except:
             print('SEMANTIC ERROR')
             raise Exception
@@ -168,7 +183,7 @@ class InNode(Node):
 
 class ListItemNode(Node):
     def __init__(self, v):
-        self.v = v 
+        self.v = v
 
     def evaluate(self):
         try:
@@ -189,6 +204,8 @@ tokens = (
 # Tokens
 t_LPAREN  = r'\('
 t_RPAREN  = r'\)'
+t_RBRACE = r'\]'
+t_LBRACE = r'\['
 t_COMMA = r','
 t_PLUS    = r'\+'
 t_MINUS   = r'-'
@@ -219,7 +236,11 @@ def t_BOOL(t):
 
 
 def t_STRING(t):
-    r'\'[a-zA-Z0-9_+\*\- :,\s]*\''
+    r'(\'[^"]*\')|(\"[^"]*\")'
+
+    t.value = t.value.strip('\"')
+    t.value = t.value.strip('\'')
+
     try:
         t.value = StringNode(t.value)
     except ValueError:
@@ -239,7 +260,7 @@ def t_NUMBER(t):
 
 
 # Ignored characters
-t_ignore = " \t"
+t_ignore = " \t\n"
 
 
 def t_error(t):
@@ -262,8 +283,8 @@ precedence = (
     ('left', 'MOD'),
     ('left', 'TIMES', 'DIVIDE'),
     ('right', 'POW'),
-    ('left', 'LBRACE', 'RBRACE'),
-    ('left', 'LPAREN', 'RPAREN')
+    ('left', 'LBRACE')
+#    ('left', 'LPAREN', 'RPAREN')
 )
 
 
@@ -296,6 +317,7 @@ def p_expression_bincomp(t):
          | expr EQ expr
          | expr LT expr
          | expr LE expr
+         | expr NE expr
     '''
     t[0] = BoolopNode(t[2], t[1], t[3])
 
@@ -324,7 +346,8 @@ def p_expression_last_item(t):
 
 def p_expression_index(t):
     '''
-    expr : items LBRACE expr RBRACE
+    expr : expr LBRACE expr RBRACE
+         | STRING LBRACE expr RBRACE
     '''
     t[0] = ListIndex(t[1], t[3])
 
@@ -340,7 +363,7 @@ def p_expression_paren(t):
     '''
     expr : LPAREN expr RPAREN
     '''
-    t[0] = ListItemNode(t[2])
+    t[0] = t[2]
 
 
 def p_expression_not(t):
@@ -371,8 +394,15 @@ def p_expression_bool(t):
     t[0] = t[1]
 
 
+def p_expression_in_list(t):
+    '''
+    expr : expr IN expr
+    '''
+    t[0] = InNode(t[3], t[1])
+
+
+
 import ply.yacc as yacc
-yacc.yacc()
 
 import sys
 
@@ -381,17 +411,20 @@ if (len(sys.argv) != 2):
 fd = open(sys.argv[1], 'r')
 code = ""
 for line in fd:
-    code += line.strip()
+    yacc.yacc()
+    code = line.strip()
+#    print(code)
 
-
-try:
-    lex.input(code)
-    while True:
-        token = lex.token()
-        if not token: break
-        print(token)
-    ast = yacc.parse(code)
-    ast.execute()
-except Exception:
-    print("ERROR")
+    try:
+        lex.input(code)
+        while True:
+            token = lex.token()
+            if not token: break
+#            print(token)
+        ast = yacc.parse(code)
+        ast.execute()
+    except Exception:
+        pass
+       # print("ERROR")
+#        raise Exception
 
