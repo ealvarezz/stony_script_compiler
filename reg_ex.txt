@@ -3,13 +3,15 @@ stmt : LBRACE stmt_list RBRACE
 stmt_list : stmt stmt_list               // might to do left associativity
 stmt : PRINT LPAREN expr  RPAREN SEMI
 stmt : VARNAME ASSIGN expr SEMI
-stmt : VARNAME ASSIGN VARNAME SEMI       // **
+stmt : VARNAME ASSIGN VARNAME SEMI       
+stmt : PRINT LPAREN VARNAME  RPAREN SEMI 
 stmt : expr LBRACKET expr RBRACKET ASSIGN expr
      | VARNAME LBRACKET expr RBRACKET ASSIGN expr   
-     | STRING  LBRACKET expr RBRACKET             // Same node will sufice **
+     | STRING  LBRACKET expr RBRACKET           
 stmt : WHILE LPAREN expr RPAREN LBRACE stmt_list  RBRACE 
 stmt : IF LPAREN expr RPAREN LBRACE stmt_list RBRACE
 stmt : IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE
+stmt : expr SEMI            
 expr : LBRACKET items RBRACKET
 items : items COMMA expr
 expr : expr LBRACKET expr RBRACKET

@@ -51,7 +51,7 @@ class BlockNode(Node):
         self.v = v
 
     def evaluate(self):
-        self.evaluate()
+        self.v.evaluate()
 
 
 class StringNode(Node):
@@ -163,6 +163,18 @@ class PrintNode(Node):
             print('SEMANTIC ERROR')
             raise Exception
 
+
+
+class PrintVarNode(Node):
+    def __init__(self, name):
+        self.name = name
+
+    def evaluate(self):
+        try:
+            print(variables[self.name.evaluate()])
+        except:
+            print('SEMANTIC ERROR')
+            raise Exception
 
 
 
@@ -500,8 +512,14 @@ def p_statement_list_empty(t):
     '''
     stmt_list :
     '''
-    
     t[0] = None
+
+
+def p_statement_to_expression(t):
+    '''
+    stmt : expr SEMI
+    '''
+    t[0] = t[1]
 
 
 def p_print_statement(t):
@@ -509,6 +527,14 @@ def p_print_statement(t):
     stmt : PRINT LPAREN expr  RPAREN SEMI
     '''
     t[0] = PrintNode(t[3])
+
+
+
+def p_print_variable(t):
+    '''
+    stmt : PRINT LPAREN VARNAME  RPAREN SEMI
+    '''
+    t[0] = PrintVarNode(t[3])
 
 
 def p_assign_statement(t):
