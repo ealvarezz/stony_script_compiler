@@ -25,6 +25,7 @@ class RootNode(Node):       # This is the root note that will perform the
 
 class StmtNode(Node):
     def __init__(self, stmt, stmt_list):
+        #print('Makes stmt node')
         self.stmt = stmt
         self.stmt_list = stmt_list
 
@@ -51,7 +52,8 @@ class BlockNode(Node):
         self.v = v
 
     def evaluate(self):
-        self.v.evaluate()
+        if self.v != None:
+            self.v.evaluate()
 
 
 class StringNode(Node):
@@ -165,18 +167,6 @@ class PrintNode(Node):
 
 
 
-class PrintVarNode(Node):
-    def __init__(self, name):
-        self.name = name
-
-    def evaluate(self):
-        try:
-            print(variables[self.name.evaluate()])
-        except:
-            print('SEMANTIC ERROR')
-            raise Exception
-
-
 
 class AssignNode(Node):
     def __init__(self, name, v):
@@ -186,6 +176,19 @@ class AssignNode(Node):
     def evaluate(self):
         try:
             variables[self.name.evaluate()] = self.v.evaluate()
+        except:
+            print('SEMANTIC ERROR')
+            raise Exception
+
+
+
+class VariableNode(Node):
+    def __init__(self, name):
+        self.name = name
+
+    def evaluate(self):
+        try:
+            return variables[self.name.evaluate()]
         except:
             print('SEMANTIC ERROR')
             raise Exception
@@ -391,11 +394,8 @@ t_PLUS    = r'\+'
 t_MINUS   = r'-'
 t_TIMES   = r'\*'
 t_DIVIDE  = r'/'
-t_AND = 'and'
-t_OR = 'or'
 t_POW = r'\*\*'
 t_MOD = r'%'
-t_NOT = 'not'
 t_GT = r'\>'
 t_GE = r'\>\='
 t_EQ = r'\=\='
@@ -403,16 +403,42 @@ t_LT = r'\<'
 t_LE = r'\<\='
 t_NE = r'\<\>'
 t_FLOOR = r'\/\/'
-t_IN = r'in'
-t_IF = r'if'
-t_WHILE = r'while'
 t_LBRACE = r'\{'
 t_RBRACE = r'\}'
-t_ELSE = r'else'
 t_SEMI = r'\;'
 t_ASSIGN = r'\='
-t_PRINT = r'print'
 
+def t_IN(t):
+    r'in'
+    return t
+
+def t_IF(t):
+    r'if'
+    return t
+
+def t_WHILE(t):
+    r'while'
+    return t
+
+def t_PRINT(t):
+    r'print'
+    return t
+
+def t_OR(t):
+    r'or'
+    return t
+
+def t_AND(t):
+    r'and'
+    return t
+
+def t_ELSE(t):
+    r'else'
+    return t
+
+def t_NOT(t):
+    r'not'
+    return t
 
 def t_BOOL(t):
     r'True|False'
@@ -461,8 +487,12 @@ def t_NUMBER(t):
 # Ignored characters
 t_ignore = " \t\n"
 
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += t.value.count("\n")
 
 def t_error(t):
+    t.lexer.skip()
     print("Syntax error at '%s'" % t.value)
 
 
@@ -482,8 +512,8 @@ precedence = (
     ('left', 'MOD'),
     ('left', 'TIMES', 'DIVIDE'),
     ('right', 'POW'),
-    ('left', 'LBRACKET')
-#    ('left', 'LPAREN', 'RPAREN')
+    ('left', 'LBRACKET'),
+    ('left', 'LBRACE')
 )
 
 
@@ -512,14 +542,8 @@ def p_statement_list_empty(t):
     '''
     stmt_list :
     '''
+    
     t[0] = None
-
-
-def p_statement_to_expression(t):
-    '''
-    stmt : expr SEMI
-    '''
-    t[0] = t[1]
 
 
 def p_print_statement(t):
@@ -527,14 +551,6 @@ def p_print_statement(t):
     stmt : PRINT LPAREN expr  RPAREN SEMI
     '''
     t[0] = PrintNode(t[3])
-
-
-
-def p_print_variable(t):
-    '''
-    stmt : PRINT LPAREN VARNAME  RPAREN SEMI
-    '''
-    t[0] = PrintVarNode(t[3])
 
 
 def p_assign_statement(t):
@@ -675,6 +691,13 @@ def p_expression_not(t):
     t[0] = NotNode(t[2])
 
 
+def p_expression_variable(t):
+    '''
+    expr : VARNAME
+    '''
+    t[0] = VariableNode(t[1])
+
+
 def p_expression_string(t):
     '''
     expr : STRING
@@ -706,6 +729,7 @@ def p_expression_in_list(t):
 def p_error(p):
  
     print("SYNTAX ERROR")
+    #print(traceback.format_exc())
     raise Exception
 
 
@@ -721,23 +745,26 @@ for line in fd:
     code += line
 
 yacc.yacc()
-code = line.strip()
+code = code.strip()
 #    print(code)
 
 
 code = code.replace("\n", "")
 code = code.replace("\t", "")
-
+#code = code.replace(" ", "")
 try:
     lex.input(code)
     while True:
         token = lex.token()
         if not token: break
-#           print(token)
+        #print(token)
+    #ast = yacc.parse(code, debug=1, tracking=1)
     ast = yacc.parse(code)
+    #print(ast)
     ast.execute()
 except Exception:
-    pass
-       # print("ERROR")
-#        raise Exception
+    #pass
+    None
+    print("ERROR")
+    raise Exception
 

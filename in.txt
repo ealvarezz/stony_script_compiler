@@ -1,18 +1,4 @@
-1 - 2 + 3
-1 2 3
-42 + "Red"
-1 - (2 + 3)
-"Hello" + " " + "SeaWolf."
-[1, 2, 3][0] + 40
-" 1 + 2 = " + ' 3 '
-["abc",["bcd",["cde","def"]]][1][1][1][1]
-1 + 2.5
-'substring' in "There is a substring in this string"
-True or False and False
-(True or False) and False
-1 <> 2 and 'T' + (((["abc", ["def", "ghi"]][1][1][1]))) + "is" in "This string contains h"
-True and not False or not True and False
-1 // 2 + 5 > 5
-4 ** 3 ** 2 <> (4 ** 3)**2
-not (((1 > 2) or (1 == 1)) and (3 >= 1))
-("" in "" or ' ' in "" ) and 'abcd' <> "efgh" and 'random string' > 'another random string'
+{
+a = ((2 + 5) % 2) * 8;
+{if(True){print(a * a);} else {print(a + a);}}
+}
