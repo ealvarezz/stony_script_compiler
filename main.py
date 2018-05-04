@@ -280,7 +280,7 @@ class ListVarAssignNode(Node):
 
     def evaluate(self):
         try:
-            variables[self.list_name.evaluate()][self.index.evaluate()] = self.v
+            variables[self.list_name.evaluate()][self.index.evaluate()] = self.v.evaluate()
         except:
             print('SEMANTIC ERROR')
             raise Exception
@@ -295,7 +295,7 @@ class ListAssignNode(Node):
 
     def evaluate(self):
         try:
-            self.expr.evaluate()[self.index.evaluate()] = self.v
+            self.expr.evaluate()[self.index.evaluate()] = self.v.evaluate()
         except:
             print('SEMANTIC ERROR')
             raise Exception
