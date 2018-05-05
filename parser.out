@@ -45,6 +45,7 @@ Rule 39    expr -> STRING
 Rule 40    expr -> NUMBER
 Rule 41    expr -> BOOL
 Rule 42    expr -> expr IN expr
+Rule 43    expr -> <empty>
 
 Terminals, with rules where they appear
 
@@ -151,7 +152,9 @@ state 2
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     RBRACE          reduce using rule 4 (stmt_list -> .)
     LBRACE          shift and go to state 3
     PRINT           shift and go to state 6
@@ -164,6 +167,24 @@ state 2
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     stmt_list                      shift and go to state 4
     stmt                           shift and go to state 5
@@ -211,7 +232,9 @@ state 3
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     RBRACE          reduce using rule 4 (stmt_list -> .)
     LBRACE          shift and go to state 3
     PRINT           shift and go to state 6
@@ -224,6 +247,24 @@ state 3
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     stmt_list                      shift and go to state 17
     stmt                           shift and go to state 5
@@ -278,7 +319,9 @@ state 5
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     RBRACE          reduce using rule 4 (stmt_list -> .)
     LBRACE          shift and go to state 3
     PRINT           shift and go to state 6
@@ -291,6 +334,24 @@ state 5
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     stmt                           shift and go to state 5
     stmt_list                      shift and go to state 19
@@ -333,7 +394,9 @@ state 7
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -341,6 +404,25 @@ state 7
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RPAREN          reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 21
 
@@ -448,7 +530,10 @@ state 10
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
+  ! shift/reduce conflict for RBRACKET resolved as shift
     RBRACKET        shift and go to state 44
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
@@ -457,6 +542,26 @@ state 10
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
+  ! RBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     items                          shift and go to state 43
     expr                           shift and go to state 45
@@ -534,7 +639,9 @@ state 14
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -542,6 +649,28 @@ state 14
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 49
 
@@ -650,7 +779,9 @@ state 20
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -658,6 +789,25 @@ state 20
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RPAREN          reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 51
 
@@ -795,7 +945,9 @@ state 24
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -803,6 +955,25 @@ state 24
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RBRACKET        reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 56
 
@@ -836,7 +1007,9 @@ state 25
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -844,6 +1017,28 @@ state 25
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 57
 
@@ -877,7 +1072,9 @@ state 26
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -885,6 +1082,28 @@ state 26
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 58
 
@@ -918,7 +1137,9 @@ state 27
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -926,6 +1147,28 @@ state 27
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 59
 
@@ -959,7 +1202,9 @@ state 28
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -967,6 +1212,28 @@ state 28
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 60
 
@@ -1000,7 +1267,9 @@ state 29
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1008,6 +1277,28 @@ state 29
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 61
 
@@ -1041,7 +1332,9 @@ state 30
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1049,6 +1342,28 @@ state 30
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 62
 
@@ -1082,7 +1397,9 @@ state 31
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1090,6 +1407,28 @@ state 31
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 63
 
@@ -1123,7 +1462,9 @@ state 32
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1131,6 +1472,28 @@ state 32
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 64
 
@@ -1164,7 +1527,9 @@ state 33
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1172,6 +1537,28 @@ state 33
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 65
 
@@ -1205,7 +1592,9 @@ state 34
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1213,6 +1602,28 @@ state 34
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 66
 
@@ -1246,7 +1657,9 @@ state 35
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1254,6 +1667,28 @@ state 35
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 67
 
@@ -1287,7 +1722,9 @@ state 36
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1295,6 +1732,28 @@ state 36
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 68
 
@@ -1328,7 +1787,9 @@ state 37
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1336,6 +1797,28 @@ state 37
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 69
 
@@ -1369,7 +1852,9 @@ state 38
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1377,6 +1862,28 @@ state 38
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 70
 
@@ -1410,7 +1917,9 @@ state 39
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1418,6 +1927,28 @@ state 39
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 71
 
@@ -1451,7 +1982,9 @@ state 40
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1459,6 +1992,28 @@ state 40
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RPAREN          reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+    SEMI            reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 72
 
@@ -1493,7 +2048,9 @@ state 41
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 73
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1501,6 +2058,25 @@ state 41
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    SEMI            reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 74
 
@@ -1535,7 +2111,9 @@ state 42
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1543,6 +2121,25 @@ state 42
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RBRACKET        reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 75
 
@@ -1655,7 +2252,9 @@ state 46
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1663,6 +2262,25 @@ state 46
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RBRACKET        reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 78
 
@@ -1696,7 +2314,9 @@ state 47
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1704,6 +2324,25 @@ state 47
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RPAREN          reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 79
 
@@ -1738,7 +2377,9 @@ state 48
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1746,6 +2387,25 @@ state 48
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RPAREN          reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 80
 
@@ -1826,6 +2486,22 @@ state 50
     NOT             reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
     NUMBER          reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
     BOOL            reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    PLUS            reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    MINUS           reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    TIMES           reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    DIVIDE          reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    FLOOR           reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    MOD             reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    POW             reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    AND             reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    OR              reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    GT              reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    GE              reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    EQ              reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    LT              reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    LE              reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    NE              reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
+    IN              reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
     RBRACE          reduce using rule 2 (stmt -> LBRACE stmt_list RBRACE .)
 
 
@@ -1927,7 +2603,9 @@ state 53
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1935,6 +2613,25 @@ state 53
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RBRACKET        reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 82
 
@@ -1968,7 +2665,9 @@ state 54
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -1976,6 +2675,25 @@ state 54
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RBRACKET        reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 83
 
@@ -2009,7 +2727,9 @@ state 55
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -2017,6 +2737,25 @@ state 55
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    RBRACKET        reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 84
 
@@ -3225,7 +3964,9 @@ state 77
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -3233,6 +3974,26 @@ state 77
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+    RBRACKET        reduce using rule 43 (expr -> .)
+    COMMA           reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 89
 
@@ -3531,6 +4292,22 @@ state 86
     NOT             reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
     NUMBER          reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
     BOOL            reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    PLUS            reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    MINUS           reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    TIMES           reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    DIVIDE          reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    FLOOR           reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    MOD             reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    POW             reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    AND             reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    OR              reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    GT              reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    GE              reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    EQ              reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    LT              reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    LE              reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    NE              reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
+    IN              reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
     RBRACE          reduce using rule 7 (stmt -> VARNAME ASSIGN VARNAME SEMI .)
 
 
@@ -3549,6 +4326,22 @@ state 87
     NOT             reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
     NUMBER          reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
     BOOL            reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    PLUS            reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    MINUS           reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    TIMES           reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    DIVIDE          reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    FLOOR           reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    MOD             reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    POW             reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    AND             reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    OR              reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    GT              reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    GE              reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    EQ              reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    LT              reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    LE              reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    NE              reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
+    IN              reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
     RBRACE          reduce using rule 6 (stmt -> VARNAME ASSIGN expr SEMI .)
 
 
@@ -3674,6 +4467,22 @@ state 93
     NOT             reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
     NUMBER          reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
     BOOL            reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    PLUS            reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    MINUS           reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    TIMES           reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    DIVIDE          reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    FLOOR           reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    MOD             reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    POW             reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    AND             reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    OR              reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    GT              reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    GE              reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    EQ              reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    LT              reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    LE              reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    NE              reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
+    IN              reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
     RBRACE          reduce using rule 5 (stmt -> PRINT LPAREN expr RPAREN SEMI .)
 
 
@@ -3788,7 +4597,9 @@ state 97
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -3796,6 +4607,25 @@ state 97
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    SEMI            reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 102
 
@@ -3829,7 +4659,9 @@ state 98
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -3837,6 +4669,25 @@ state 98
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    SEMI            reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 103
 
@@ -3870,7 +4721,9 @@ state 99
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     VARNAME         shift and go to state 22
     LBRACKET        shift and go to state 10
     STRING          shift and go to state 23
@@ -3878,6 +4731,25 @@ state 99
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    SEMI            reduce using rule 43 (expr -> .)
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 104
 
@@ -3923,7 +4795,9 @@ state 100
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     RBRACE          reduce using rule 4 (stmt_list -> .)
     LBRACE          shift and go to state 3
     PRINT           shift and go to state 6
@@ -3936,6 +4810,24 @@ state 100
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 8
     stmt_list                      shift and go to state 105
@@ -3984,7 +4876,9 @@ state 101
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     RBRACE          reduce using rule 4 (stmt_list -> .)
     LBRACE          shift and go to state 3
     PRINT           shift and go to state 6
@@ -3997,6 +4891,24 @@ state 101
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 8
     stmt_list                      shift and go to state 106
@@ -4155,6 +5067,22 @@ state 107
     NOT             reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
     NUMBER          reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
     BOOL            reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    PLUS            reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    MINUS           reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    TIMES           reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    DIVIDE          reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    FLOOR           reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    MOD             reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    POW             reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    AND             reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    OR              reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    GT              reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    GE              reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    EQ              reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    LT              reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    LE              reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    NE              reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    IN              reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
     RBRACE          reduce using rule 9 (stmt -> expr LBRACKET expr RBRACKET ASSIGN expr SEMI .)
 
 
@@ -4173,6 +5101,22 @@ state 108
     NOT             reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
     NUMBER          reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
     BOOL            reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    PLUS            reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    MINUS           reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    TIMES           reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    DIVIDE          reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    FLOOR           reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    MOD             reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    POW             reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    AND             reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    OR              reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    GT              reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    GE              reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    EQ              reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    LT              reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    LE              reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    NE              reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    IN              reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
     RBRACE          reduce using rule 8 (stmt -> VARNAME LBRACKET expr RBRACKET ASSIGN expr SEMI .)
 
 
@@ -4191,6 +5135,22 @@ state 109
     NOT             reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
     NUMBER          reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
     BOOL            reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    PLUS            reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    MINUS           reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    TIMES           reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    DIVIDE          reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    FLOOR           reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    MOD             reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    POW             reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    AND             reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    OR              reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    GT              reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    GE              reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    EQ              reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    LT              reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    LE              reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    NE              reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
+    IN              reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
     RBRACE          reduce using rule 10 (stmt -> STRING LBRACKET expr RBRACKET ASSIGN expr SEMI .)
 
 
@@ -4209,6 +5169,22 @@ state 110
     NOT             reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
     NUMBER          reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
     BOOL            reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    PLUS            reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    MINUS           reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    TIMES           reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    DIVIDE          reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    FLOOR           reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    MOD             reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    POW             reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    AND             reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    OR              reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    GT              reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    GE              reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    EQ              reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    LT              reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    LE              reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    NE              reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    IN              reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
     RBRACE          reduce using rule 11 (stmt -> WHILE LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
 
 
@@ -4228,6 +5204,22 @@ state 111
     NOT             reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
     NUMBER          reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
     BOOL            reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    PLUS            reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    MINUS           reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    TIMES           reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    DIVIDE          reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    FLOOR           reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    MOD             reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    POW             reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    AND             reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    OR              reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    GT              reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    GE              reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    EQ              reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    LT              reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    LE              reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    NE              reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
+    IN              reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
     RBRACE          reduce using rule 12 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE .)
     ELSE            shift and go to state 112
 
@@ -4281,7 +5273,9 @@ state 113
     (40) expr -> . NUMBER
     (41) expr -> . BOOL
     (42) expr -> . expr IN expr
+    (43) expr -> .
 
+  ! shift/reduce conflict for LBRACKET resolved as shift
     RBRACE          reduce using rule 4 (stmt_list -> .)
     LBRACE          shift and go to state 3
     PRINT           shift and go to state 6
@@ -4294,6 +5288,24 @@ state 113
     NOT             shift and go to state 14
     NUMBER          shift and go to state 15
     BOOL            shift and go to state 16
+    PLUS            reduce using rule 43 (expr -> .)
+    MINUS           reduce using rule 43 (expr -> .)
+    TIMES           reduce using rule 43 (expr -> .)
+    DIVIDE          reduce using rule 43 (expr -> .)
+    FLOOR           reduce using rule 43 (expr -> .)
+    MOD             reduce using rule 43 (expr -> .)
+    POW             reduce using rule 43 (expr -> .)
+    AND             reduce using rule 43 (expr -> .)
+    OR              reduce using rule 43 (expr -> .)
+    GT              reduce using rule 43 (expr -> .)
+    GE              reduce using rule 43 (expr -> .)
+    EQ              reduce using rule 43 (expr -> .)
+    LT              reduce using rule 43 (expr -> .)
+    LE              reduce using rule 43 (expr -> .)
+    NE              reduce using rule 43 (expr -> .)
+    IN              reduce using rule 43 (expr -> .)
+
+  ! LBRACKET        [ reduce using rule 43 (expr -> .) ]
 
     expr                           shift and go to state 8
     stmt_list                      shift and go to state 114
@@ -4321,14 +5333,70 @@ state 115
     NOT             reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
     NUMBER          reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
     BOOL            reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    PLUS            reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    MINUS           reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    TIMES           reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    DIVIDE          reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    FLOOR           reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    MOD             reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    POW             reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    AND             reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    OR              reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    GT              reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    GE              reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    EQ              reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    LT              reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    LE              reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    NE              reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
+    IN              reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
     RBRACE          reduce using rule 13 (stmt -> IF LPAREN expr RPAREN LBRACE stmt_list RBRACE ELSE LBRACE stmt_list RBRACE .)
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
+WARNING: shift/reduce conflict for LBRACKET in state 2 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 3 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 5 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 7 resolved as shift
 WARNING: shift/reduce conflict for LBRACKET in state 9 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 10 resolved as shift
+WARNING: shift/reduce conflict for RBRACKET in state 10 resolved as shift
 WARNING: shift/reduce conflict for LBRACKET in state 11 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 14 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 20 resolved as shift
 WARNING: shift/reduce conflict for LBRACKET in state 22 resolved as shift
 WARNING: shift/reduce conflict for LBRACKET in state 23 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 24 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 25 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 26 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 27 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 28 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 29 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 30 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 31 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 32 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 33 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 34 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 35 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 36 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 37 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 38 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 39 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 40 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 41 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 42 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 46 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 47 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 48 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 53 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 54 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 55 resolved as shift
 WARNING: shift/reduce conflict for SEMI in state 73 resolved as shift
 WARNING: shift/reduce conflict for LBRACKET in state 73 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 77 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 97 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 98 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 99 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 100 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 101 resolved as shift
+WARNING: shift/reduce conflict for LBRACKET in state 113 resolved as shift

@@ -1,0 +1,74 @@
+{{{}{}{print(['abc', 'def', ['ghi', 'jkl', ['mno', 'pqrs', ['tuv', 'wxyz']]]][2][2][2][1][0] in 'the quick brown fox jumps over the lazy dog.' or ['abc', 'def', ['ghi', 'jkl', ['mno', 'pqrs', ['tuv', 'wxyz']]]][2][2][2][1] in 'the quick brown fox jumps over the lazy dog.' and [[[[[["substring"]]]]]][0][0][0][0][0][0] in "There is no sub-string in this string");}}
+
+{
+a = ((2 + 5) % 2) * 8;
+{if(True){print(a * a);} else {print(a + a);}}
+}
+
+{
+	a = 3;
+	b = 5;
+	while( a > 0 ){
+		b = b ** a;
+		a = a - 1;
+	}
+	print(b);
+}
+
+{print("This is a string test");}
+
+{
+	a = "This is a string test";
+	print(a);
+}
+
+{
+	a = ["This is a list test"];
+	print(a);
+}
+
+{
+
+  data = [ [ 100, 42 ], [ 100, 50 ], [ 123, 456 ], [ 300, 9000 ] ];
+
+  result = [ 0, 0, 0, 0 ];
+
+  i = 0;
+
+  while (i < 4){
+
+    a = data[i][0];
+
+    b = data[i][1];
+
+    if (a > 0){
+
+      while (b > 0){
+
+        if (a > b){
+
+          a = a - b;
+
+        } else {
+
+          b = b - a;
+
+        }
+
+       }
+
+    }
+
+    result[i] = a;
+
+    i = i + 1;
+
+  }
+
+  print(result);
+
+}
+
+{print([1, "a", 2]);}
+
+}

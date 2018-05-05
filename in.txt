@@ -1,3 +1,23 @@
+{ 
+     print(" 1 + 2 = " + ' 3 ');print(["abc",["bcd",["cde","def"]]][1][1][1][1]);
+    print(1 + 2.5);
+    print('substring' in "There is a substring in this string");
+    {
+	  {
+		print(True or False and False);
+		print((True or False) and False);
+	  }
+    }
+
+    print(1 <> 2 and 'T' + (((["abc", ["def", "ghi"]][1][1][1]))) + "is" in "This string contains h");
+    print(True and not False or not True and False);
+    print(1 // 2 + 5 > 5);
+    print(4 ** 3 ** 2 <> (4 ** 3)**2);
+    print(not (((1 > 2) and (1 == 1)) or ((3 == 1) or (1 <> 2) ) ));
+    print(("" in "" or ' ' in "" ) and 'abcd' <> "efgh" and 'random string' > 'another random string');
+    print("a" < "b" and 'a' in "abc" and "a" + "b" + 'c' in 'a' + "b" + 'c' and not 'd' in ("abc" + ("def"[1])) and "a" + "b" < 'b' and 'abc' <> "def" and "test" == 'test' and "test1" >= 'test' and 'test'[0] <= 't');
+    print();
 
 
-{print([1, "a", 2]);}
+
+}

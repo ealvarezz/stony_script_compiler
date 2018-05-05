@@ -19,7 +19,8 @@ class RootNode(Node):       # This is the root note that will perform the
         self.v = v      # the tree if finally constructed
 
     def execute(self):
-        self.v.evaluate()
+        if self.v != None:
+            self.v.evaluate()
 
 
 
@@ -109,8 +110,8 @@ class BinopNode(Node):
             if (self.op == '+'):
                 return self.v1.evaluate() + self.v2.evaluate()
         except:
-            print("SEMANTIC ERROR")
-            raise Exception
+            print("Semantic error")
+            exit()
 
 """
 class ConcatNode(Node):
@@ -150,8 +151,8 @@ class BoolopNode(Node):
                 return self.v1.evaluate() != self.v2.evaluate()
 
         except:
-            print('SEMANTIC ERROR')
-            raise Exception
+            print('Semantic error')
+            exit()
 
 
 class PrintNode(Node):
@@ -159,11 +160,10 @@ class PrintNode(Node):
         self.v = v
 
     def evaluate(self):
-        try:
+        if self.v != None:
             print(self.v.evaluate())
-        except:
-            print('SEMANTIC ERROR')
-            raise Exception
+        else:
+            print()
 
 
 
@@ -174,11 +174,7 @@ class AssignNode(Node):
         self.v = v
 
     def evaluate(self):
-        try:
-            variables[self.name.evaluate()] = self.v.evaluate()
-        except:
-            print('SEMANTIC ERROR')
-            raise Exception
+        variables[self.name.evaluate()] = self.v.evaluate()
 
 
 
@@ -187,11 +183,7 @@ class VariableNode(Node):
         self.name = name
 
     def evaluate(self):
-        try:
-            return variables[self.name.evaluate()]
-        except:
-            print('SEMANTIC ERROR')
-            raise Exception
+        return variables[self.name.evaluate()]
 
 
 
@@ -201,11 +193,7 @@ class AssignVar2VarNode(Node):
         self.name2 = name2
 
     def evaluate(self):
-        try:
-            variables[self.name1.evaluate()] = variables[self.name2.evaluate()]
-        except:
-            print('SEMANTIC ERROR')
-            raise Exception
+        variables[self.name1.evaluate()] = variables[self.name2.evaluate()]
 
 
 
@@ -215,13 +203,10 @@ class WhileNode(Node):
         self.stmt_list = stmt_list
 
     def evaluate(self):
-        try:
-            while self.condition.evaluate():
+        while self.condition.evaluate():
+            if self.stmt_list != None:
                 self.stmt_list.evaluate()
 
-        except:
-            print('SEMANTIC ERROR')
-            raise Exception
 
 
 
@@ -231,12 +216,9 @@ class IfNode(Node):
         self.stmt_list = stmt_list
 
     def evaluate(self):
-        try:
-            if self.condition.evaluate():
+        if self.condition.evaluate():
+            if self.stmt_list != None:
                 self.stmt_list.evaluate()
-        except:
-            print('SEMANTIC ERROR')
-            raise Exception
 
 
 
@@ -247,14 +229,12 @@ class IfElseNode(Node):
         self.stmt_list2 = stmt_list2
 
     def evaluate(self):
-        try:
-            if self.condition.evaluate():
+        if self.condition.evaluate():
+            if self.stmt_list1 != None:
                 self.stmt_list1.evaluate()
-            else:
+        else:
+            if self.stmt_list2 != None:
                 self.stmt_list2.evaluate()
-        except:
-            print('SEMANTIC ERROR')
-            raise Exception
 
 
 
@@ -267,8 +247,8 @@ class ListVarIndexNode(Node):
         try:
             return variables[self.list_name.evaluate()][self.index.evaluate()]
         except:
-            print('SEMANTIC ERROR')
-            raise Exception
+            print('Semantic error')
+            exit()
 
 
 
@@ -282,8 +262,8 @@ class ListVarAssignNode(Node):
         try:
             variables[self.list_name.evaluate()][self.index.evaluate()] = self.v.evaluate()
         except:
-            print('SEMANTIC ERROR')
-            raise Exception
+            print('Semantic error')
+            exit()
 
 
 
@@ -297,8 +277,8 @@ class ListAssignNode(Node):
         try:
             self.expr.evaluate()[self.index.evaluate()] = self.v.evaluate()
         except:
-            print('SEMANTIC ERROR')
-            raise Exception
+            print('Semantic error')
+            exit()
 
 
 
@@ -310,8 +290,8 @@ class NotNode(Node):
         try:
             return not self.v.evaluate()
         except:
-            print('SEMANTIC ERROR')
-            raise Exception
+            print('Semantic error')
+            exit()
 
 
 class ListNode(Node):
@@ -327,8 +307,8 @@ class ListNode(Node):
             #print('ahhhhhhhhhhhhhhhhh')
             return new_l
         except:
-            print('SEMANTIC ERROR')
-            raise Exception
+            print('Semantic error')
+            exit()
 
 
 class ListIndex(Node):
@@ -337,15 +317,12 @@ class ListIndex(Node):
         self.index = index
 
     def evaluate(self):
-        #print('evaliating index')
         try:
             listt = self.l.evaluate()
-            #print(listt)
-            #print('YERR')
             return listt[self.index.evaluate()]
         except:
-            print('SEMANTIC ERROR')
-            raise Exception
+            print('Semantic error')
+            exit()
 
 
 
@@ -358,8 +335,8 @@ class InNode(Node):
         try:
             return self.item.evaluate() in self.l.evaluate()
         except:
-            print('SEMANTIC ERROR')
-            raise Exception
+            print('Semantic error')
+            exit()
 
 
 class ListItemNode(Node):
@@ -367,11 +344,7 @@ class ListItemNode(Node):
         self.v = v
 
     def evaluate(self):
-        try:
-            return self.v.evaluate()
-        except:
-            print('SEMANTIC ERROR')
-            raise Exception
+        return self.v.evaluate()
 
 tokens = (
     'LBRACKET', 'RBRACKET',
@@ -726,11 +699,19 @@ def p_expression_in_list(t):
     t[0] = InNode(t[3], t[1])
 
 
+def p_expression_empty(t):
+    '''
+    expr : 
+    '''
+    t[0] = None
+
+
 def p_error(p):
  
-    print("SYNTAX ERROR")
+    print("Syntax error")
+    exit(1)
     #print(traceback.format_exc())
-    raise Exception
+    #raise Exception
 
 
 import ply.yacc as yacc
@@ -764,7 +745,7 @@ try:
     ast.execute()
 except Exception:
     #pass
-    None
-    print("ERROR")
-    raise Exception
+    exit(1)
+#    print("ERROR")
+ #   raise Exception
 
